@@ -1,0 +1,15 @@
+@keyframes loading {
+
+    from {
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+    
+}
+
+
+.progress{
+    animation: loading linear 2s infinite;
+}
