@@ -8,8 +8,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
+import { LoadingComponent } from './components/loading/loading.component';
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, LoadingComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

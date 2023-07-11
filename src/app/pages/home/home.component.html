@@ -1,5 +1,6 @@
-<div class="flex flex-col justify-center h-screen">
-  <h1 class="uppercase text-center font-bold text-2xl mb-2">
+<div class="flex flex-col justify-center relative">
+  <app-loading *ngIf="isLoading"></app-loading>
+  <h1 class="uppercase text-center font-bold text-2xl">
     A* Path finder algorithm
   </h1>
   <div class="grid-container">

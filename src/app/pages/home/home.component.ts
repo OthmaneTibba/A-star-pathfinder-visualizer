@@ -10,10 +10,11 @@ import { PathService } from 'src/app/service/path.service';
 export class HomeComponent implements OnInit {
   row: number = 20;
   col: number = 45;
+  isLoading: boolean = false;
   nodes: Node[] = [];
   gridStyle = 'gap-0 grid grid-cols-'.concat(this.col.toString());
   normalNodeStyle =
-    'bg-gray-200 h-[30px] w-[30px] rounded border border-sky-500';
+    'bg-gray-100s h-[30px] w-[30px] rounded border border-sky-500';
   obstacleNodeStyle =
     'bg-black h-[30px] w-[30px] rounded border border-gray-500';
   startNodeStyle =
@@ -173,6 +174,12 @@ export class HomeComponent implements OnInit {
       return;
     }
 
+    if (this.isLoading) {
+      return;
+    }
+
+    this.isLoading = true;
+
     this.pathService.getPath(this.nodes).subscribe({
       next: (data) => {
         console.log(data);
@@ -186,9 +193,11 @@ export class HomeComponent implements OnInit {
             }
           }
         }
+        this.isLoading = false;
       },
       error: (err) => {
         this.toastService.error('cannot find a path', 'error');
+        this.isLoading = false;
       },
     });
   }
