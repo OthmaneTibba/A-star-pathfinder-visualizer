@@ -10,7 +10,7 @@ export class PathService {
 
   getPath(nodes: Node[]) {
     return this.client.post<Node[]>(
-      'http://localhost:8080/api/pathfinder/find',
+      'https://java-a-start-pathfinder-production.up.railway.app/api/pathfinder/find',
       {
         nodes: nodes,
       }
